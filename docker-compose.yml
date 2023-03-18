@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  finn-backend:
+    build:
+      context: ./backend
+    image: finn-backend
+    container_name: finn-backend
+    restart: always
+    ports:
+      - "3333:8000"
+    networks:
+     - finn-network
+
+  finn-frontend:
+    build:
+      context: ./frontend
+    image: finn-frontend
+    container_name: finn-frontend
+    restart: always
+    ports:
+      - "4444:8000"
+    networks:
+     - finn-network
+
+networks:
+  finn-network:
